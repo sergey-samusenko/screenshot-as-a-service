@@ -6,6 +6,13 @@
  *
  * This starts an HTTP server waiting for screenshot requests
  */
+var system = require('system');
+
+if (typeof(phantom.args) === 'undefined') {
+  phantom.args = system.args.slice(1);
+}
+
+
 var basePath = phantom.args[0] || '/tmp/';
 
 var port  = phantom.args[1] || 3001;
